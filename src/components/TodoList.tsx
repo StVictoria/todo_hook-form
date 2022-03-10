@@ -7,13 +7,13 @@ interface ITodoListProps {
 }
 
 const TodoListStyled = styled.div`
-  width: 300px;
+  width: 400px;
 `;
 
 const TodoStyled = styled.div`
-  max-width: 300px;
+  text-align: center;
   padding: 10px;
-  border: 1px solid grey;
+  border-bottom: 1px solid grey;
 
   &:not(:last-child) {
     margin-bottom: 20px;

@@ -5,12 +5,15 @@ const GlobalStyles = createGlobalStyle`
     min-width: 100wv;
     min-height: 100vh;
     color: white;
-    background-color: #012737;
+    background-color: #011d29;
     padding-top: 20px;
+    letter-spacing: 1px;
+    box-sizing: border-box;
   }
 
   input, button {
       outline: none;
+      letter-spacing: 1px;
   }
 `;
 

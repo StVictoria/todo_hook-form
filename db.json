@@ -2,27 +2,19 @@
   "todos": [
     {
       "id": 1,
-      "title": "To do 1"
+      "title": "Feed myself"
     },
     {
       "id": 2,
-      "title": "To do 2"
+      "title": "Buy some bitcoins"
     },
     {
       "id": 3,
-      "title": "To do 3"
+      "title": "Put on socks"
     },
     {
-      "id": 1,
-      "title": "To do 1"
-    },
-    {
-      "id": 2,
-      "title": "To do 2"
-    },
-    {
-      "id": 3,
-      "title": "To do 3"
+      "title": "One new thing to do",
+      "id": 4
     }
   ]
 }
