@@ -1,16 +1,21 @@
 import styled from "styled-components";
+import { todoAPI } from "../services/TodoAPI";
 import AddTodoForm from "./AddTodoForm";
-import List from "./List";
+import TodoList from "./TodoList";
 
 const AppStyled = styled.div`
   display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 function App() {
+  const { data } = todoAPI.useFetchAllTodosQuery("");
+  console.log(data);
   return (
     <AppStyled>
       <AddTodoForm />
-      <List />
+      <TodoList data={data} />
     </AppStyled>
   );
 }

@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import Button from "./Button";
+import { todoAPI } from "../services/TodoAPI";
 
 const AddTodoFormStyled = styled.div`
   display: flex;
   justify-content: center;
-  width: 50%;
 `;
 
 const FormStyled = styled.form`
@@ -14,7 +14,6 @@ const FormStyled = styled.form`
   justify-content: center;
   align-items: center;
   padding: 40px;
-  background-color: #012737;
   border-radius: 5px;
 `;
 
@@ -35,12 +34,14 @@ const AddTodoForm: React.FC<IAddTodoFormProps> = ({ className }) => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
-  const onSubmit = (values: any) => console.log(values);
 
-  console.log(watch());
+  const [addTodo, {}] = todoAPI.useAddTodoMutation();
+
+  const onSubmit = (values: any) => {
+    addTodo(values);
+  };
 
   return (
     <AddTodoFormStyled>
@@ -48,9 +49,9 @@ const AddTodoForm: React.FC<IAddTodoFormProps> = ({ className }) => {
         <InputStyled
           isError={errors.todoTitle}
           placeholder="Some to do"
-          {...register("todoTitle", {
+          {...register("title", {
             required: "Write something",
-            minLength: { value: 4, message: "Min length is 4" },
+            minLength: 4,
           })}
         />
 
