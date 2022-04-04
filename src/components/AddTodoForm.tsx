@@ -50,6 +50,7 @@ interface IAddTodoFormProps {
 const AddTodoForm: React.FC<IAddTodoFormProps> = ({ className }) => {
   const {
     register,
+    resetField,
     handleSubmit,
     formState: { errors },
   } = useForm();
@@ -58,6 +59,7 @@ const AddTodoForm: React.FC<IAddTodoFormProps> = ({ className }) => {
 
   const onSubmit = (values: any) => {
     addTodo(values);
+    resetField('title');
   };
 
   return (
@@ -74,7 +76,7 @@ const AddTodoForm: React.FC<IAddTodoFormProps> = ({ className }) => {
           />
           {errors.title && (
             <ErrorMessage>
-              Make sure you entered more than 4 characters
+              Make sure you entered more than 3 characters
             </ErrorMessage>
           )}
         </InputWrapper>

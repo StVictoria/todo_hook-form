@@ -6,11 +6,11 @@ interface ITodoListProps {
   className?: string;
 }
 
-const TodoListStyled = styled.div`
+const TodoListStyled = styled.ul`
   width: 400px;
 `;
 
-const TodoStyled = styled.div`
+const TodoStyled = styled.li`
   text-align: center;
   padding: 10px;
   border-bottom: 1px solid grey;
