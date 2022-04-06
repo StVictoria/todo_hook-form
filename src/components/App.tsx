@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import List from "./List";
 import ColumnBlock from "./common/ColumnBlock";
 import { IListsState } from "../models/ITodo";
+import Loader from "./common/Loader";
 
 const AppStyled = styled.div`
   display: flex;
@@ -46,7 +47,7 @@ function App() {
     { id: 1, listName: "doneTodos", list: null },
     { id: 2, listName: "removedTodos", list: null },
   ]);
-  const { data: todos } = todoAPI.useFetchAllTodosQuery("");
+  const { data: todos, isLoading: isTodosLoading } = todoAPI.useFetchAllTodosQuery("");
 
   function onDragEnd({ source, destination }: any) {
     if (!destination) {
@@ -93,6 +94,10 @@ function App() {
       ]);
     }
   }, [todos]);
+
+  if (isTodosLoading) {
+    return <Loader />
+  }
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
