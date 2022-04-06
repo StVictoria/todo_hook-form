@@ -58,7 +58,7 @@ const AddTodoForm: React.FC<IAddTodoFormProps> = ({ className }) => {
   const [addTodo, {}] = todoAPI.useAddTodoMutation();
 
   const onSubmit = (values: any) => {
-    addTodo(values);
+    addTodo({title: values.title, type: "active"});
     resetField('title');
   };
 

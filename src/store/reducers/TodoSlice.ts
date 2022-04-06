@@ -1,7 +1,7 @@
+import axios from "axios";
 import { AppDispatch } from "./../store";
 import { createSlice } from "@reduxjs/toolkit";
 import { ITodo } from "../../models/ITodo";
-import axios from "axios";
 
 interface ITodoState {
   todos: ITodo[];

@@ -1,1 +1,2 @@
-To start json-server: npx json-server --watch db.json --3005
+1. Start the app: npm start
+2. Start json-server: npx json-server --watch db.json --port 3005

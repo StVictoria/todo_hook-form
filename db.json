@@ -2,27 +2,48 @@
   "todos": [
     {
       "id": 1,
-      "title": "Feed myself"
+      "title": "Feed myself",
+      "type": "active"
     },
     {
       "id": 2,
-      "title": "Buy some bitcoins"
+      "title": "Buy some bitcoins",
+      "type": "active"
     },
     {
       "id": 3,
-      "title": "Put on socks"
+      "title": "Put on socks",
+      "type": "active"
     },
     {
       "title": "One new thing to do",
-      "id": 4
+      "id": 4,
+      "type": "active"
     },
     {
       "title": "Another thing to do",
-      "id": 5
+      "id": 5,
+      "type": "active"
     },
     {
       "title": "Talk to the tv",
-      "id": 6
+      "id": 6,
+      "type": "active"
+    },
+    {
+      "title": "test",
+      "type": "active",
+      "id": 7
+    },
+    {
+      "title": "Removed todo",
+      "type": "removed",
+      "id": 8
+    },
+    {
+      "title": "Done todo",
+      "type": "done",
+      "id": 10
     }
   ]
 }
