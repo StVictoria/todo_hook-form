@@ -76,12 +76,12 @@ function App() {
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <AppStyled>
-        {lists[2].list !== null && <List title="REMOVED" data={lists[2]} />}
+        {lists[2]?.list !== null && <List title="REMOVED" data={lists[2]} />}
         <ColumnBlock>
           <AddTodoForm />
-          {lists[0].list !== null && <TodoList data={lists[0]} />}
+          {lists[0]?.list !== null && <TodoList data={lists[0]} />}
         </ColumnBlock>
-        {lists[1].list !== null && <List title="DONE" data={lists[1]} />}
+        {lists[1]?.list !== null && <List title="DONE" data={lists[1]} />}
       </AppStyled>
     </DragDropContext>
   );

@@ -18,7 +18,9 @@ const initialState: ITodoState = {
 export const fetchTodos = () => async (dispatch: AppDispatch) => {
   try {
     const response = await axios.get<ITodo[]>("/");
-  } catch (e) {}
+  } catch (e) {
+    console.log(e);
+  }
 };
 
 export const todoSlice = createSlice({
