@@ -1,9 +1,7 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import todoReducer from "./reducers/TodoSlice";
 import { todoAPI } from "../services/TodoAPI";
 
 const rootReducer = combineReducers({
-  todoReducer,
   [todoAPI.reducerPath]: todoAPI.reducer,
 });
 

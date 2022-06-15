@@ -8,7 +8,7 @@ const LoaderStyled = styled.div`
   height: 100vh;
 `;
 
-const Loader = () => {
+const Loader: React.FC = () => {
   return <LoaderStyled>Loading...</LoaderStyled>;
 };
 

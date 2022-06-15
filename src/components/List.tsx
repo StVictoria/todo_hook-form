@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { IListsState, ITodo } from "../models/ITodo";
-import ColumnBlock from "./common/ColumnBlock";
+import { ITodo } from "../models/todoModels";
+import ColumnBlock from "./ColumnBlock";
 
 const Title = styled.h2<{ type: string; }>`
   color: ${({ type }) => (type === "REMOVED" ? "grey" : "#05be05")};
@@ -15,19 +15,21 @@ const LiStyled = styled.li`
 
 interface IList {
   title: string;
-  data: any;
+  data: ITodo[];
 }
 
-const List = ({ title, data }: IList) => {
+const List: React.FC<IList> = ({ title, data }) => {
+  const renderList = (): JSX.Element[] => data.map((item: ITodo) => (
+    <LiStyled key={item.id}>
+      {item.title}
+    </LiStyled>
+  ));
+
   return (
     <ColumnBlock>
       <Title type={title}>{title}</Title>
       <ul>
-        {data.map((item: ITodo) => (
-          <LiStyled key={item.id}>
-            {item.title}
-          </LiStyled>
-        ))}
+        {renderList()}
       </ul>
     </ColumnBlock>
   );

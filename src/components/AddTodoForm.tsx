@@ -43,11 +43,7 @@ const ErrorMessage = styled.p`
   color: red;
 `;
 
-interface IAddTodoFormProps {
-  className?: string;
-}
-
-const AddTodoForm: React.FC<IAddTodoFormProps> = ({ className }) => {
+const AddTodoForm: React.FC = () => {
   const {
     register,
     resetField,
