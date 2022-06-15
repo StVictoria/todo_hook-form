@@ -3,12 +3,12 @@
     {
       "id": 1,
       "title": "Feed myself",
-      "type": "active"
+      "type": "done"
     },
     {
       "id": 2,
       "title": "Buy some bitcoins",
-      "type": "active"
+      "type": "removed"
     },
     {
       "id": 3,
@@ -31,9 +31,9 @@
       "type": "active"
     },
     {
+      "id": 7,
       "title": "test",
-      "type": "active",
-      "id": 7
+      "type": "done"
     },
     {
       "title": "Removed todo",
@@ -44,6 +44,16 @@
       "title": "Done todo",
       "type": "done",
       "id": 10
+    },
+    {
+      "title": "test",
+      "type": "active",
+      "id": 11
+    },
+    {
+      "id": 12,
+      "title": "test 1",
+      "type": "removed"
     }
   ]
 }

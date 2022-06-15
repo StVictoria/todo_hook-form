@@ -2,6 +2,7 @@ import { ITodo } from './../models/ITodo';
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 interface ITodoBody {
+  id?: number;
   title: string;
   type: "active" | "done" | "removed";
 }
@@ -15,7 +16,7 @@ export const todoAPI = createApi({
       query: () => ({
         url: "/todos",
       }),
-      providesTags: result => ["Todos"]
+      providesTags: ["Todos"]
     }),
     addTodo: build.mutation<ITodo, ITodoBody>({
       query: (todo) => ({
@@ -25,9 +26,9 @@ export const todoAPI = createApi({
       }),
       invalidatesTags: ["Todos"]
     }),
-    changeTodo: build.mutation<ITodo, ITodoBody>({
+    changeTodoStatus: build.mutation<ITodo, ITodoBody>({
       query: (todo) => ({
-        url: '/todos',
+        url: `/todos/${todo.id}`,
         method: "PUT",
         body: todo,
       }),

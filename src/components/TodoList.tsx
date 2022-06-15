@@ -1,9 +1,11 @@
 import styled from "styled-components";
-import { Droppable, Draggable } from "react-beautiful-dnd";
+import { ReactComponent as TrashIcon } from "../assets/icons/trash.svg";
+import { ReactComponent as CheckIcon } from "../assets/icons/check.svg";
 import { IListsState, ITodo } from "../models/ITodo";
+import { todoAPI } from "../services/TodoAPI";
 
 interface ITodoListProps {
-  data: IListsState | null;
+  data: any;
   className?: string;
 }
 
@@ -12,6 +14,9 @@ const TodoListStyled = styled.ul`
 `;
 
 const TodoStyled = styled.li`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   text-align: center;
   padding: 10px;
   border-bottom: 1px solid grey;
@@ -22,28 +27,24 @@ const TodoStyled = styled.li`
 `;
 
 const TodoList: React.FC<ITodoListProps> = ({ data, className }) => {
+  const [changeTodoStatus] = todoAPI.useChangeTodoStatusMutation();
+
+  const handleChangeTodo = (id: number, title: string, type: "done" | "removed") => changeTodoStatus({id, title, type});
+
   return (
-    <Droppable droppableId={`${data?.id}`}>
-      {(provided) => (
-        <TodoListStyled {...provided.droppableProps} ref={provided.innerRef}>
-          {data?.list?.map((item: ITodo, index: number) => (
-            <Draggable key={item.id} draggableId={`${item.id}`} index={index}>
-              {(provided) => (
-                <TodoStyled
-                  {...provided.draggableProps}
-                  {...provided.dragHandleProps}
-                  key={item.id}
-                  ref={provided.innerRef}
-                >
-                  {item.title}
-                </TodoStyled>
-              )}
-            </Draggable>
-          ))}
-          {provided.placeholder}
-        </TodoListStyled>
-      )}
-    </Droppable>
+    <TodoListStyled>
+      {data.map((item: ITodo) => (
+        <TodoStyled key={item.id}>
+          <button onClick={(e) => handleChangeTodo(item.id, item.title, "removed")}>
+            <TrashIcon height={20} />
+          </button>
+          {item.title}
+          <button onClick={(e) => handleChangeTodo(item.id, item.title, "done")}>
+            <CheckIcon height={20} />
+          </button>
+        </TodoStyled>
+      ))}
+    </TodoListStyled>
   );
 };
 
